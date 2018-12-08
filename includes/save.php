@@ -39,22 +39,22 @@ $MachoIntelx64_ip = "10.0.0.1";
 // ngrep options
 if ($type == "opt_$mod_name") {
     $exec = "/bin/sed -i 's/opt_LinuxIntelx86_ip.*/opt_LinuxIntelx86_ip = \\\"$LinuxIntelx86_ip\\\";/g' options_config.php";
-    $output = exec_fruitywifi($exec);
+    $output = exec_blackbulb($exec);
 	
     $exec = "/bin/sed -i 's/opt_LinuxIntelx64_ip.*/opt_LinuxIntelx64_ip = \\\"$LinuxIntelx64_ip\\\";/g' options_config.php";
-    $output = exec_fruitywifi($exec);
+    $output = exec_blackbulb($exec);
 	
     $exec = "/bin/sed -i 's/opt_WindowsIntelx86_ip.*/opt_WindowsIntelx86_ip = \\\"$WindowsIntelx86_ip\\\";/g' options_config.php";
-    $output = exec_fruitywifi($exec);
+    $output = exec_blackbulb($exec);
 
     $exec = "/bin/sed -i 's/opt_WindowsIntelx64_ip.*/opt_WindowsIntelx64_ip = \\\"$WindowsIntelx64_ip\\\";/g' options_config.php";
-    $output = exec_fruitywifi($exec);	
+    $output = exec_blackbulb($exec);
 
     $exec = "/bin/sed -i 's/opt_MachoIntelx86_ip.*/opt_MachoIntelx86_ip = \\\"$MachoIntelx86_ip\\\";/g' options_config.php";
-    $output = exec_fruitywifi($exec);
+    $output = exec_blackbulb($exec);
 	
     $exec = "/bin/sed -i 's/opt_MachoIntelx64_ip.*/opt_MachoIntelx64_ip = \\\"$MachoIntelx64_ip\\\";/g' options_config.php";
-    $output = exec_fruitywifi($exec);
+    $output = exec_blackbulb($exec);
 	
     header('Location: ../index.php?tab=1');
     exit;

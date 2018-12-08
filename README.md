@@ -1,11 +1,11 @@
 module_bdfproxy
 ==============
 
-FruityWifi bdfproxy module
+BlackBulb bdfproxy module
 
 v1.0
 ---------------------------------
-- FruityWifi v2.1 is required
+- BlackBulb v2.1 is required
 - mitmproxy is required
 
 

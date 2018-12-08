@@ -1,7 +1,7 @@
 <?
 $mod_name="bdfproxy";
 $mod_version="1.3";
-$mod_path="/usr/share/fruitywifi/www/modules/$mod_name";
+$mod_path="/usr/share/blackbulb/www/modules/$mod_name";
 $mod_logs="$log_path/$mod_name.log"; 
 $mod_logs_history="$mod_path/includes/logs/";
 $mod_panel="show";
@@ -12,7 +12,7 @@ $mod_alias="BDFproxy";
 # EXEC
 $bin_sudo = "/usr/bin/sudo";
 $bin_mitmproxy = "/usr/local/bin/mitmdump";
-$bin_bdfproxy = "/usr/share/fruitywifi/www/modules/bdfproxy/includes/bdf-proxy/bdf_proxy.py";
+$bin_bdfproxy = "/usr/share/blackbulb/www/modules/bdfproxy/includes/bdf-proxy/bdf_proxy.py";
 $bin_iptables = "/sbin/iptables";
 $bin_awk = "/usr/bin/awk";
 $bin_grep = "/bin/grep";

@@ -49,59 +49,59 @@ if($service == $mod_name) {
         // COPY LOG
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
             
             $exec = "echo '' > $mod_logs";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
 	
 		// SET BDFPROXY CONFIG FILE	
 	    //$exec = "/bin/sed -i 's/HOST =.*# LinuxIntelx86 Metasploit IP/HOST = $opt_LinuxIntelx86_ip # LinuxIntelx86 Metasploit IP/g' bdf-proxy/bdfproxy.cfg";
-		//$output = exec_fruitywifi($exec);
+		//$output = exec_blackbulb($exec);
 		
 		//$exec = "/bin/sed -i 's/HOST =.*# LinuxIntelx64 Metasploit IP/HOST = $opt_LinuxIntelx64_ip # LinuxIntelx64 Metasploit IP/g' bdf-proxy/bdfproxy.cfg";
-		//$output = exec_fruitywifi($exec);
+		//$output = exec_blackbulb($exec);
 		
 		$exec = "/bin/sed -i 's/HOST =.*# WindowsIntelx86 Metasploit IP/HOST = $opt_WindowsIntelx86_ip # WindowsIntelx86 Metasploit IP/g' bdf-proxy/bdfproxy.cfg";
-		$output = exec_fruitywifi($exec);
+		$output = exec_blackbulb($exec);
 		
 		$exec = "/bin/sed -i 's/HOST =.*# WindowsIntelx64 Metasploit IP/HOST = $opt_WindowsIntelx64_ip # WindowsIntelx64 Metasploit IP/g' bdf-proxy/bdfproxy.cfg";
-		$output = exec_fruitywifi($exec);	
+		$output = exec_blackbulb($exec);
 		
 		//$exec = "/bin/sed -i 's/HOST =.*# MachoIntelx86 Metasploit IP/HOST = $opt_MachoIntelx86_ip # MachoIntelx86 Metasploit IP/g' bdf-proxy/bdfproxy.cfg";
-		//$output = exec_fruitywifi($exec);
+		//$output = exec_blackbulb($exec);
 		
 		//$exec = "/bin/sed -i 's/HOST =.*# MachoIntelx64 Metasploit IP/HOST = $opt_MachoIntelx64_ip # MachoIntelx64 Metasploit IP/g' bdf-proxy/bdfproxy.cfg";
-		//$output = exec_fruitywifi($exec);
+		//$output = exec_blackbulb($exec);
 	
 	
 		$exec = "$bin_iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port $port";
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 	
 		$exec = "cd bdf-proxy; stdbuf -oL python bdf_proxy.py >> $mod_logs &";
 		
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
 		
     } else if($action == "stop") {
 	
 		// STOP MODULE
         
 		$exec = "$bin_iptables -t nat -D PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port $port";
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 		
 		$exec = "ps aux|grep bdf_proxy | grep -v grep | awk '{print $2}'";
 		exec($exec,$output);
 		
 		$exec = "kill " . $output[0];
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 	
 		// COPY LOG
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
             
             $exec = "echo '' > $mod_logs";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
 	
     }
@@ -111,10 +111,10 @@ if($service == $mod_name) {
 if ($install == "install_$mod_name") {
 
     $exec = "chmod 755 install.sh";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
     
     $exec = "$bin_sudo ./install.sh > $log_path/install.txt &";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     header("Location: ../../install.php?module=$mod_name");
     exit;
